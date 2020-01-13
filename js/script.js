@@ -18,7 +18,7 @@ else {
 
 
 if (a === 1 && b === 3) {
-console.log("a is 1 or b is 3")
+console.log("a is 1 and b is 3")
 }
 else {
     console.log("try again")

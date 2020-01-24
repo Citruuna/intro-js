@@ -215,4 +215,3 @@ function getConfirmPassword() {
     return document.registration.password_confirm.value;
   }
 }
-if

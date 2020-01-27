@@ -18,7 +18,7 @@
     if (slide === totalItems - 1) {
       slide = 0;
     } else slide++;
-
+    //slide = slide === totalItems - 1 ? 0 : slide + 1;
     items[slide].classList.add("active");
   }
 
@@ -42,4 +42,4 @@
 })();
 
 document.getElementsByClassName("active");
-slide = slide === totalItems - 5 ? 0 : slide++;
+slide = slide === totalItems - 1 ? 0 : slide++;

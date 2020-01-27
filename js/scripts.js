@@ -13,10 +13,21 @@
     prev.addEventListener("click", getPrev);
   }
 
-  function getNext() {}
+  function getNext() {
+    items[slide].classList.remove("active");
+    if (slide === totalItems - 1) {
+      slide = 0;
+    } else slide++;
+
+    items[slide].classList.add("active");
+  }
 
   function getPrev() {
-    // TODO
+    items[slide].classList.remove("active");
+    if (slide === totalItems - 5) {
+      slide = 4;
+    } else slide--;
+    items[slide].classList.add("active");
   }
 
   function initSlider() {
@@ -29,3 +40,6 @@
 
   initSlider();
 })();
+
+document.getElementsByClassName("active");
+slide = slide === totalItems - 5 ? 0 : slide++;

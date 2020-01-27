@@ -16,8 +16,7 @@ function validateForm(e){
             && validateLastName()
         ) {
         var _newUser = getUserDataObj();   
-        // add code to update registeredUsers array with new username and call render function
-        // TODO
+
         registeredUsers.push(_newUser);
         renderRegisteredUsers();
         document.registration.reset(); // reset form input fields
@@ -36,9 +35,11 @@ function getUserDataObj() {
     };
 }
 
+
+
 function renderRegisteredUsers() {
     document.getElementById('registered-users').innerHTML = '';
-
+   
     registeredUsers.forEach(function(registeredUser){
         var _newUser = document.createElement('li'); 
         _newUser.innerHTML = JSON.stringify(registeredUser);

@@ -13,9 +13,7 @@
     prev.addEventListener("click", getPrev);
   }
 
-  function getNext() {
-    // TODO
-  }
+  function getNext() {}
 
   function getPrev() {
     // TODO

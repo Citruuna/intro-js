@@ -1,5 +1,5 @@
-var registeredUsers = []; // this array stores valid usernames until the next pageload
-
+var registeredUsers = []; // this array stores valid usernames until the next pageload 
+const userPass = []; // new array for saving potential login info that array could be available for user to recover password or some
 function validateForm(e){
     e.preventDefault(); // stop the submit button from refreshing the page
     console.log('validating ....');
@@ -7,6 +7,7 @@ function validateForm(e){
     console.log('user name: ' + validateUsername());
     console.log('email: ' + validateEmail());
     console.log('password: ' + validatePassword());
+    
 
     if (validateUsername() 
             && validateEmail() 
@@ -16,12 +17,26 @@ function validateForm(e){
             && validateLastName()
         ) {
         var _newUser = getUserDataObj();   
-
+        const userLogin = getUserLoginInfo(); // new logininfo to get pass and passconfirmation
         registeredUsers.push(_newUser);
+        userPass.push(userLogin);
         renderRegisteredUsers();
         document.registration.reset(); // reset form input fields
     }
+
+    } 
+
+function getUserLoginInfo() {
+
+    return {
+        userName: getUserName(),
+        password: getPassword(),
+        confirmPassword: getConfirmPassword(),
+        
+    };
+    
 }
+
 
 function getUserDataObj() {
     return {
@@ -30,8 +45,7 @@ function getUserDataObj() {
         lastName: getLastName(),
         email: getEmail(),
         phoneNumber: getPhoneNumber(),
-        password: getPassword(),
-        confirmPassword: getConfirmPassword()
+
     };
 }
 
@@ -46,6 +60,7 @@ function renderRegisteredUsers() {
         document.getElementById('registered-users').appendChild(_newUser);
     });
 }
+
 
 /**
  * this function supposely validates submitted username

@@ -34,26 +34,29 @@
           $("#theDiv2").fadeOut();
         });
 
-        $("#fadeto3").click(function(this) {
+        $("#fadeto3").click(function() {
           // TODO: fade theDiv to 30% opactity in 2 seconds
           $("#theDiv").fadeTo(2000, 0.3);
         });
 
         $("#fadeup").click(function() {
           // TODO: fade theDiv element to 100% in 5 seconds
+          $("#theDiv").fadeTo(5000, 1);
         });
 
         $("#slideup").click(function() {
           // TODO: slide the element up
+
+          $("#theDiv").slideUp(10000);
         });
 
         $("#slidedown").click(function() {
           // TODO: fade the element down
+          $("#theDiv").slideDown(10000);
         });
 
         $("#pulse").click(function() {
-          $("#theDiv").fadeTo(0.1, 1000);
-          $("#theDiv").fadeTo(1, 1000);
+          $("#theDiv").fadeTo(1000, 0.1) && $("#theDiv").fadeTo(1000, 1);
 
           // TODO: fade the element to 10% then to 100% then to 10% then to 100% then to 1% then to 100%
         });

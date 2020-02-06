@@ -604,3 +604,21 @@ em {
 #myBtn:hover {
   background-color: rgba(5, 167, 40, 0.561);
 }
+
+.weather {
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: 400px;
+  width: 200px;
+  height: 100px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: rgba(0, 255, 64, 0.897);
+  color: white;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 18px;
+}

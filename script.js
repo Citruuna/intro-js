@@ -102,12 +102,3 @@ $(document).ready(function() {
       .css("display", view);
   }
 });
-
-//Viivis code
-$(document).redy(function(){
-    $("[data-type=proteinbar]").hover(function() {
-        $("[data-type=proteinbar]").css("background",
-        "blue"
-    });
-    
-});

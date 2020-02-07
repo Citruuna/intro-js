@@ -1,9 +1,9 @@
 $(document).ready(function() {
   $("#btnReg").on("click", validateForm);
 });
-var $registeredUsers = $([]); // this array stores valid usernames until the next pageload
-const userPass = []; // new array for saving potential login info that array could be available for user to recover password
-var $foo = $(".foo");
+var registeredUsers = []; // this array stores valid usernames until the next pageload
+var userPass = []; // new array for saving potential login info that array could be available for user to recover password
+
 function validateForm(e) {
   e.preventDefault(); // stop the submit button from refreshing the page
   console.log("validating ....");
@@ -21,7 +21,7 @@ function validateForm(e) {
     validateLastName()
   ) {
     var _newUser = getUserDataObj();
-    const userLogin = getUserLoginInfo(); // new logininfo to get pass and passconfirmation
+    var userLogin = getUserLoginInfo(); // new logininfo to get pass and passconfirmation
     registeredUsers.push(_newUser);
     userPass.push(userLogin);
     renderRegisteredUsers();
@@ -31,19 +31,19 @@ function validateForm(e) {
 
 function getUserLoginInfo() {
   return {
-    userName: getUserName(),
+    userName: get("username"),
     password: getPassword(),
-    confirmPassword: getConfirmPassword()
+    confirmPassword: get("confirmpassword")
   };
 }
 
 function getUserDataObj() {
   return {
-    userName: getUserName(),
-    firstName: getFirstName(),
-    lastName: getLastName(),
-    email: getEmail(),
-    phoneNumber: getPhoneNumber()
+    userName: get("username"),
+    firstName: get("firstname"),
+    lastName: get("lastname"),
+    email: get("email"),
+    phoneNumber: get("phonenumber")
   };
 }
 
@@ -62,7 +62,7 @@ function renderRegisteredUsers() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateUsername() {
-  var _userName = getUserName();
+  var _userName = get("username");
 
   return !checkSpace(_userName);
 }
@@ -72,7 +72,7 @@ function validateUsername() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateFirstName() {
-  var _firstName = getFirstName();
+  var _firstName = get("firstname");
 
   return _firstName !== "";
 }
@@ -92,7 +92,7 @@ function validateLastName() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validatePhoneNumber() {
-  var _phoneNumber = getPhoneNumber();
+  var _phoneNumber = get("phonenumber");
 
   return !isNaN(_phoneNumber);
 }
@@ -102,7 +102,7 @@ function validatePhoneNumber() {
  * @returns [Boolean] true when valid, false otherwise
  */
 function validateEmail() {
-  var _email = getEmail();
+  var _email = get("email");
 
   if (checkSpace(_email) === true) {
     return false;
@@ -136,7 +136,7 @@ function validateEmail() {
  */
 function validatePassword() {
   var _password = getPassword();
-  var _confirmPassword = getConfirmPassword();
+  var _confirmPassword = get("confirmpassword");
 
   if (_password !== _confirmPassword) {
     return false;
@@ -166,58 +166,11 @@ function checkSpace(sample) {
  *
  * @returns [Boolean] true when valid, false otherwise
  */
-function getUserName() {
-  if (typeof $('[name="username"]').val() === "undefined") {
-    return "";
-  } else {
-    return $('[name="username"]').val();
-  }
-}
 
-function getFirstName() {
-  if (typeof document.registration.firstname.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.firstname.value;
-  }
-}
-
-function getLastName() {
-  if (typeof document.registration.lastname.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.lastname.value;
-  }
-}
-
-function getPhoneNumber() {
-  if (typeof document.registration.phonenumber.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.phonenumber.value;
-  }
-}
-
-function getEmail() {
+function get(abc) {
   if (typeof document.registration.email.value === "undefined") {
     return "";
   } else {
     return document.registration.email.value;
-  }
-}
-
-function getPassword() {
-  if (typeof document.registration.password.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.password.value;
-  }
-}
-
-function getConfirmPassword() {
-  if (typeof document.registration.password_confirm.value === "undefined") {
-    return "";
-  } else {
-    return document.registration.password_confirm.value;
   }
 }

@@ -1501,6 +1501,7 @@ main {
 }
 
 .popup {
+  display: inline;
   margin: 0px auto;
   padding: 50px 20px;
   background: #fff;

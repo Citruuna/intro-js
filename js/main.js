@@ -1,11 +1,11 @@
-(function($) {
+(function ($) {
   "use strict";
 
   // bootstrap dropdown hover
 
   // loader
-  var loader = function() {
-    setTimeout(function() {
+  var loader = function () {
+    setTimeout(function () {
       if ($("#loader").length > 0) {
         $("#loader").removeClass("show");
       }
@@ -14,13 +14,13 @@
   loader();
 
   $("nav .dropdown").hover(
-    function() {
+    function () {
       var $this = $(this);
       $this.addClass("show");
       $this.find("> a").attr("aria-expanded", true);
       $this.find(".dropdown-menu").addClass("show");
     },
-    function() {
+    function () {
       var $this = $(this);
       $this.removeClass("show");
       $this.find("> a").attr("aria-expanded", false);
@@ -29,7 +29,7 @@
   );
 
   var offcanvas_toggle = $(".js-offcanvas-toggle");
-  offcanvas_toggle.on("click", function() {
+  offcanvas_toggle.on("click", function () {
     if ($("body").hasClass("offcanvas-open")) {
       $("body").removeClass("offcanvas-open");
     } else {
@@ -37,7 +37,7 @@
     }
   });
 
-  $(document).click(function(e) {
+  $(document).click(function (e) {
     var container = $(".js-offcanvas-toggle, #offcanvas_menu");
     if (!container.is(e.target) && container.has(e.target).length === 0) {
       if ($("body").hasClass("offcanvas-open")) {
@@ -46,15 +46,15 @@
     }
   });
 
-  $("#date-countdown").countdown("2020/10/10", function(event) {
+  $("#date-countdown").countdown("2020/10/10", function (event) {
     var $this = $(this).html(
       event.strftime(
         "" +
-          '<span class="countdown-block"><span class="label">%w</span> weeks </span>' +
-          '<span class="countdown-block"><span class="label">%d</span> days </span>' +
-          '<span class="countdown-block"><span class="label">%H</span> hr </span>' +
-          '<span class="countdown-block"><span class="label">%M</span> min </span>' +
-          '<span class="countdown-block"><span class="label">%S</span> sec</span>'
+        '<span class="countdown-block"><span class="label">%w</span> weeks </span>' +
+        '<span class="countdown-block"><span class="label">%d</span> days </span>' +
+        '<span class="countdown-block"><span class="label">%H</span> hr </span>' +
+        '<span class="countdown-block"><span class="label">%M</span> min </span>' +
+        '<span class="countdown-block"><span class="label">%S</span> sec</span>'
       )
     );
   });
@@ -185,10 +185,10 @@
     }
   });
 
-  var contentWayPoint = function() {
+  var contentWayPoint = function () {
     var i = 0;
     $(".element-animate").waypoint(
-      function(direction) {
+      function (direction) {
         if (
           direction === "down" &&
           !$(this.element).hasClass("element-animated")
@@ -196,10 +196,10 @@
           i++;
 
           $(this.element).addClass("item-animate");
-          setTimeout(function() {
-            $("body .element-animate.item-animate").each(function(k) {
+          setTimeout(function () {
+            $("body .element-animate.item-animate").each(function (k) {
               var el = $(this);
-              setTimeout(function() {
+              setTimeout(function () {
                 var effect = el.data("animate-effect");
                 if (effect === "fadeIn") {
                   el.addClass("fadeIn element-animated");
@@ -215,31 +215,50 @@
             });
           }, 100);
         }
-      },
-      { offset: "95%" }
+      }, {
+        offset: "95%"
+      }
     );
   };
   contentWayPoint();
 })(jQuery);
 
-function displayPopup() {
-  document.getElementById("popup1").style.visibility = "visible";
+function pageloadPopup() {
+  timePopOne = setInterval(displayPopup, 3000);
+  eventListeners()
 }
 
-function closePopup() {
+
+function displayPopup() {
+  document.getElementById("popup1").style.visibility = "visible";
+  clearInterval(timePopOne)
+}
+
+
+
+function displayPopupThree() {
+  document.getElementById("popup3").style.visibility = "visible";
+}
+
+function closePopupOne() {
   document.getElementById("popup1").style.visibility = "hidden";
 }
 
-function eventListeners() {
-  closeit.addEventlistener("click", closePopup);
-  body.addEventlistener("onmouseleave", displayPopup);
+function closePopupTwo() {
+  document.getElementById("popup2").style.visibility = "hidden";
+  displayPopupThree()
 }
+
+function closePopupThree() {
+  document.getElementById("popup3").style.visibility = "hidden";
+}
+
 
 function formValidation() {
   document
     .getElementById("subscribe_popup")
     .getElementsByClassName("button")[0]
-    .addEventListener("click", function() {
+    .addEventListener("click", function () {
       document.getElementById("popup1").style.visibility = "hidden";
       document.getElementById("popup2").style.visibility = "visible";
     });

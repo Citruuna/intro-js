@@ -227,3 +227,15 @@ $.fn.alignElementsSameHeight = function () {
 
 
 }
+
+
+
+
+document.getElementsByClassName("img-fluid").addEventListener("click", events);
+
+function events (){
+    let products = window.location.pathname === "/category.html"
+        if (products === true) {
+            console.log("user is on product page");
+        }
+}

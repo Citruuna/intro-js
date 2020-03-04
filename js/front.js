@@ -228,16 +228,25 @@ $.fn.alignElementsSameHeight = function () {
 
 }
 
+function trigger(){
+    let customerType = document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0];
 
 
-
-document.getElementsByClassName("img-fluid").addEventListener("click", events);
-
-function events (){
-    let products = window.location.pathname === "/category.html"
-        if (products === true) {
-            console.log("user is on product page");
-        }
 }
 
-document.getElementsByClassName
+
+
+document.getElementById("content").addEventListener("click", events);
+document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0].addEventListener("click", genders);
+
+function genders(){
+    let gender 
+}
+function events(){
+    let products = window.location.pathname === "/detail.html"
+        if (products === true) {
+            console.log("user is in products");
+        }else {
+            console.log("user is not in products")
+        }
+}

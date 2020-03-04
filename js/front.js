@@ -239,3 +239,5 @@ function events (){
             console.log("user is on product page");
         }
 }
+
+document.getElementsByClassName

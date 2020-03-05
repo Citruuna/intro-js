@@ -105,39 +105,39 @@ $(window).resize(function () {
 
 /* product detail gallery */
 
-// function productDetailGallery(confDetailSwitch) {
-//     $('.thumb:first').addClass('active');
-//     timer = setInterval(autoSwitch, confDetailSwitch);
-//     $(".thumb").click(function(e) {
-//
-// 	switchImage($(this));
-// 	clearInterval(timer);
-// 	timer = setInterval(autoSwitch, confDetailSwitch);
-// 	e.preventDefault();
-//     }
-//     );
-//     $('#mainImage').hover(function() {
-// 	clearInterval(timer);
-//     }, function() {
-// 	timer = setInterval(autoSwitch, confDetailSwitch);
-//     });
-//
-//     function autoSwitch() {
-// 	var nextThumb = $('.thumb.active').closest('div').next('div').find('.thumb');
-// 	if (nextThumb.length == 0) {
-// 	    nextThumb = $('.thumb:first');
-// 	}
-// 	switchImage(nextThumb);
-//     }
-//
-//     function switchImage(thumb) {
-//
-// 	$('.thumb').removeClass('active');
-// 	var bigUrl = thumb.attr('href');
-// 	thumb.addClass('active');
-// 	$('#mainImage img').attr('src', bigUrl);
-//     }
-// }
+function productDetailGallery(confDetailSwitch) {
+    $('.thumb:first').addClass('active');
+    timer = setInterval(autoSwitch, confDetailSwitch);
+    $(".thumb").click(function(e) {
+
+	switchImage($(this));
+	clearInterval(timer);
+	timer = setInterval(autoSwitch, confDetailSwitch);
+	e.preventDefault();
+    }
+    );
+    $('#mainImage').hover(function() {
+	clearInterval(timer);
+    }, function() {
+	timer = setInterval(autoSwitch, confDetailSwitch);
+    });
+
+    function autoSwitch() {
+	var nextThumb = $('.thumb.active').closest('div').next('div').find('.thumb');
+	if (nextThumb.length == 0) {
+	    nextThumb = $('.thumb:first');
+	}
+	switchImage(nextThumb);
+    }
+
+    function switchImage(thumb) {
+
+	$('.thumb').removeClass('active');
+	var bigUrl = thumb.attr('href');
+	thumb.addClass('active');
+	$('#mainImage img').attr('src', bigUrl);
+    }
+}
 
 function utils() {
 
@@ -230,13 +230,12 @@ $.fn.alignElementsSameHeight = function () {
 
 function trigger(){
     let customerType = document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0];
-
-
+    
 }
 
 
 
-document.getElementById("content").addEventListener("click", events);
+document.getElementById("content").addEventListener("mouseover", events);
 document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0].addEventListener("click", genders);
 
 function genders(){

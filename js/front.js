@@ -228,19 +228,24 @@ $.fn.alignElementsSameHeight = function () {
 
 }
 
-function trigger(){
-    let customerType = document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0];
-    
-}
+
 
 
 
 document.getElementById("content").addEventListener("mouseover", events);
-document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0].addEventListener("click", genders);
+document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0].addEventListener("click", trigger);
 
-function genders(){
-    let gender 
+function trigger(){
+    let customerType = document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0];
+    let gender = document.getElementById("content").children[0].getElementsByClassName("breadcrumb")[0].children[1].children[0].innerHTML
+    if(gender === "Ladies") {
+        console.log("customer is lady")
+    } else {
+        console.log("customer is not lady")
+    }
+    
 }
+
 function events(){
     let products = window.location.pathname === "/detail.html"
         if (products === true) {
